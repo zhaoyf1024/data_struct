@@ -1,0 +1,1 @@
+include $(DATA_DIR)/Makefile

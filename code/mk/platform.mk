@@ -1,0 +1,5 @@
+CC := gcc
+#CFLAGS += -Z _LIST_
+#CFLAGS += -Z _STACK_
+#CFLAGS += -Z _QUEUE_
+#CFLAGS += -Z _TREE_
