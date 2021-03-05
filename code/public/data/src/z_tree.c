@@ -221,11 +221,6 @@ void deleteNode(pTree tree, avpNode parent, avpNode del)
         tnode->hash = temp;
         tnode->parent = NULL;
         del->lchild = NULL;
-        /*if(val) parent->lchild = del->lchild;
-        else parent->rchild = del->lchild;
-        del->lchild->parent = parent;
-        del->lchild = NULL;
-        */
     }
     else if (del->rchild)//del 只有右子树
     {
@@ -235,22 +230,12 @@ void deleteNode(pTree tree, avpNode parent, avpNode del)
         tnode->hash = temp;
         tnode->parent = NULL;
         del->rchild = NULL;
-        /*
-        if(val)  parent->lchild = del->rchild;
-        else parent->rchild = del->rchild;
-        del->rchild->parent = parent;
-        del->rchild = NULL;
-        */
     }
     else //del为叶子节点
     {
         if(parent->lchild && parent->lchild->hash == del->hash) parent->lchild = NULL;
         else if(parent->rchild && parent->rchild->hash == del->hash) parent->rchild = NULL;
         del->parent = NULL;
-        /*
-        if(val) parent->lchild = NULL;
-        else parent->rchild = NULL;
-        */
     }
     
     balance(tree->root);
@@ -300,7 +285,6 @@ void treeDeleteNode(pTree tree, avpNode node)
     if(tree == NULL || node == NULL)
         return;
     
-    u8 val;
     avpNode del, parent;
     
     for(del = tree->root; del;)
