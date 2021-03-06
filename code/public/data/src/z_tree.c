@@ -132,13 +132,13 @@ avpNode ads(pTree tree, avpNode node)
        {
            if (node->balance > 1) 
            {
-               if (node->lchild->balance > 0) node = LL_rotate(node);
-               else node = LR_rotate(node);
+               if (node->lchild->balance > 0) node = LL_rotate(node);//LL
+               else node = LR_rotate(node);//LR
            }
            else 
            {
-               if (node->rchild->balance < 0) node=RR_rotate(node);
-               else node=RL_rotate(node);
+               if (node->rchild->balance < 0) node=RR_rotate(node);//RR
+               else node=RL_rotate(node);//RL
            }
            if (node->parent == NULL) 
            {
@@ -181,7 +181,7 @@ void deleteNode(pTree tree, avpNode parent, avpNode del)
     int temp;
     if(del->lchild && del->rchild) //del有左右子树
     {
-        if(del->balance > -1)
+        if(del->balance > -1)//前驱节点替换
         {
             tnode = del->lchild;
             while(tnode->rchild)
@@ -198,7 +198,7 @@ void deleteNode(pTree tree, avpNode parent, avpNode del)
                 tnode->parent->rchild = NULL;
             tnode->parent = NULL;
         }
-        else
+        else//后继节点替换
         {
             tnode = del->rchild;
             while(tnode->lchild)
@@ -296,7 +296,6 @@ void treeDeleteNode(pTree tree, avpNode node)
         }
         else if(node->data == del->data)
         {
-            val = (del->parent->lchild == del) ? 1 : 0;
             parent = del->parent;
             deleteNode(tree, parent, del);
             return;
