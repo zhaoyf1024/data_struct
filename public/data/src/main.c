@@ -1,4 +1,4 @@
-#include "z_main.h"
+#include "main.h"
 
 Chunk g_chunk;
 
