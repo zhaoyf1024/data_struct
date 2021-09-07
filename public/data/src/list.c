@@ -15,7 +15,7 @@ int listIsEmpty(pList list)
     return list->header == NULL;
 }
 
-void listInsert(pList list, u8 insertDir ,pNode node)
+void listInsert(pList list, u8 insertDir, pNode node)
 {
     node->prev = list->tail;
     node->next = list->header; 
